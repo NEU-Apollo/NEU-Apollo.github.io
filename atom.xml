@@ -6,7 +6,7 @@
   <link href="https://neu-apollo.github.io/atom.xml" rel="self"/>
   
   <link href="https://neu-apollo.github.io/"/>
-  <updated>2025-07-06T09:02:23.285Z</updated>
+  <updated>2025-07-06T11:06:36.525Z</updated>
   <id>https://neu-apollo.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>-march=native -mavx512f 两个编译选项</title>
+    <link href="https://neu-apollo.github.io/2025/07/06/-march=native%20-mavx512f%20%E4%B8%A4%E4%B8%AA%E7%BC%96%E8%AF%91%E9%80%89%E9%A1%B9/"/>
+    <id>https://neu-apollo.github.io/2025/07/06/-march=native%20-mavx512f%20%E4%B8%A4%E4%B8%AA%E7%BC%96%E8%AF%91%E9%80%89%E9%A1%B9/</id>
+    <published>2025-07-06T11:01:18.000Z</published>
+    <updated>2025-07-06T11:06:36.525Z</updated>
+    
+    <content type="html"><![CDATA[<p>这两个编译选项是用于 GCC 或 Clang 编译器的 CPU 指令集优化选项：</p><h2 id="1-march-native"><a href="#1-march-native" class="headerlink" title="1. -march&#x3D;native"></a>1. -march&#x3D;native</h2><ul><li>作用：让编译器自动检测并使用当前运行的 CPU 支持的所有指令集和优化选项进行编译。</li><li>影响：<ul><li>生成的二进制代码可能无法在其他 CPU 上运行（因为它可能使用了目标 CPU 独有的指令集）。</li><li>适用于编译仅在本机运行的程序，以获得最佳性能。</li></ul></li><li>示例：<br>gcc -march&#x3D;native -o my_program my_program.c</li><li>这会针对本机 CPU 进行优化，比如如果 CPU 支持 AVX2、SSE4.2 等，编译器就会启用相应优化。</li></ul><h2 id="2-mavx512f"><a href="#2-mavx512f" class="headerlink" title="2. -mavx512f"></a>2. -mavx512f</h2><ul><li>作用：显式启用 AVX-512 Foundation（AVX-512F）指令集支持。</li><li>影响：<ul><li>生成的代码会使用 AVX-512F 指令集（如果适用）。</li><li>运行时要求目标 CPU 必须支持 AVX-512F，否则可能崩溃或运行报错。</li><li>AVX-512F 是 AVX-512 指令集的基础部分，几乎所有 AVX-512 兼容 CPU 都支持。</li></ul></li><li>示例：<br>gcc -mavx512f -o my_program my_program.c</li><li>这会强制使用 AVX-512F 指令，适用于需要大规模 SIMD 计算的场景，如科学计算、机器学习等。</li></ul><hr><h2 id="二者的关系"><a href="#二者的关系" class="headerlink" title="二者的关系"></a>二者的关系</h2><ul><li>-march&#x3D;native 可能会隐式启用 -mavx512f，如果你的 CPU 支持 AVX-512F。</li><li>但如果 -march&#x3D;native 没有启用 AVX-512F（比如因为你的 CPU 不支持），你可以单独加上 -mavx512f 强制启用（但在不支持的 CPU 上运行会失败）。<br>如果你的 CPU 不支持 AVX-512F，而你强行加上 -mavx512f，编译时可能不会报错，但运行时可能会遇到非法指令错误（Illegal instruction）。</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;这两个编译选项是用于 GCC 或 Clang 编译器的 CPU 指令集优化选项：&lt;/p&gt;
+&lt;h2 id=&quot;1-march-native&quot;&gt;&lt;a href=&quot;#1-march-native&quot; class=&quot;headerlink&quot; title=&quot;1. -march&amp;#x3D;n</summary>
+      
+    
+    
+    
+    <category term="c++" scheme="https://neu-apollo.github.io/categories/c/"/>
+    
+    
+    <category term="编译" scheme="https://neu-apollo.github.io/tags/%E7%BC%96%E8%AF%91/"/>
+    
+    <category term="c++" scheme="https://neu-apollo.github.io/tags/c/"/>
+    
+  </entry>
   
   <entry>
     <title>CCEH_hash_split_and_directory_doubling_demo</title>

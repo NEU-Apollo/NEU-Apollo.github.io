@@ -1,3 +1,4 @@
+https://neu-apollo.github.io/2025/07/06/-march=native%20-mavx512f%20%E4%B8%A4%E4%B8%AA%E7%BC%96%E8%AF%91%E9%80%89%E9%A1%B9/
 https://neu-apollo.github.io/2025/07/06/docker-based-compile-minob/
 https://neu-apollo.github.io/2025/07/06/CCEH-hash-split-and-directory-doubling-demo/
 https://neu-apollo.github.io/2025/07/06/Build%20and%20Deploy%20Hexo-based%20github%20pages/
@@ -6,6 +7,9 @@ https://neu-apollo.github.io/tags/index.html
 https://neu-apollo.github.io/categories/index.html
 https://neu-apollo.github.io/archives/index.html
 https://neu-apollo.github.io/
+https://neu-apollo.github.io/tags/%E7%BC%96%E8%AF%91/
+https://neu-apollo.github.io/tags/c/
 https://neu-apollo.github.io/tags/docker/
+https://neu-apollo.github.io/categories/c/
 https://neu-apollo.github.io/categories/paper-note/
 https://neu-apollo.github.io/categories/docker/
