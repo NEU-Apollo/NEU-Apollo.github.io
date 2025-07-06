@@ -11,6 +11,15 @@
   </url>
   
   <url>
+    <loc>https://neu-apollo.github.io/2025/07/06/CCEH-hash-split-and-directory-doubling-demo/</loc>
+    
+    <lastmod>2025-07-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://neu-apollo.github.io/2025/07/06/Build%20and%20Deploy%20Hexo-based%20github%20pages/</loc>
     
     <lastmod>2025-07-06</lastmod>
@@ -72,5 +81,19 @@
   </url>
   
 
+  
+  <url>
+    <loc>https://neu-apollo.github.io/categories/paper-note/</loc>
+    <lastmod>2025-07-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://neu-apollo.github.io/categories/docker/</loc>
+    <lastmod>2025-07-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
   
 </urlset>
