@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://neu-apollo.github.io/2025/07/06/docker-based-compile-minob/</loc>
+    
+    <lastmod>2025-07-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://neu-apollo.github.io/2025/07/06/Build%20and%20Deploy%20Hexo-based%20github%20pages/</loc>
     
     <lastmod>2025-07-06</lastmod>
@@ -54,6 +63,13 @@
     <priority>1.0</priority>
   </url>
 
+  
+  <url>
+    <loc>https://neu-apollo.github.io/tags/docker/</loc>
+    <lastmod>2025-07-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
   
 
   
