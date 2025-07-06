@@ -1,6 +1,6 @@
-https://neu-apollo.github.io/project/2025/07/06/Build%20and%20Deploy%20Hexo-based%20github%20pages/
-https://neu-apollo.github.io/project/about/index.html
-https://neu-apollo.github.io/project/tags/index.html
-https://neu-apollo.github.io/project/categories/index.html
-https://neu-apollo.github.io/project/archives/index.html
-https://neu-apollo.github.io/project
+https://neu-apollo.github.io/2025/07/06/Build%20and%20Deploy%20Hexo-based%20github%20pages/
+https://neu-apollo.github.io/about/index.html
+https://neu-apollo.github.io/tags/index.html
+https://neu-apollo.github.io/categories/index.html
+https://neu-apollo.github.io/archives/index.html
+https://neu-apollo.github.io/

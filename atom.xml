@@ -3,11 +3,11 @@
   <title>YuanBlog</title>
   
   
-  <link href="https://neu-apollo.github.io/project/atom.xml" rel="self"/>
+  <link href="https://neu-apollo.github.io/atom.xml" rel="self"/>
   
-  <link href="https://neu-apollo.github.io/project/"/>
+  <link href="https://neu-apollo.github.io/"/>
   <updated>2025-07-06T07:20:14.699Z</updated>
-  <id>https://neu-apollo.github.io/project/</id>
+  <id>https://neu-apollo.github.io/</id>
   
   <author>
     <name>Yuan</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Build and Deploy Hexo-based github pages</title>
-    <link href="https://neu-apollo.github.io/project/2025/07/06/Build%20and%20Deploy%20Hexo-based%20github%20pages/"/>
-    <id>https://neu-apollo.github.io/project/2025/07/06/Build%20and%20Deploy%20Hexo-based%20github%20pages/</id>
+    <link href="https://neu-apollo.github.io/2025/07/06/Build%20and%20Deploy%20Hexo-based%20github%20pages/"/>
+    <id>https://neu-apollo.github.io/2025/07/06/Build%20and%20Deploy%20Hexo-based%20github%20pages/</id>
     <published>2025-07-06T06:21:59.000Z</published>
     <updated>2025-07-06T07:20:14.699Z</updated>
     
