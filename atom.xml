@@ -6,7 +6,7 @@
   <link href="https://neu-apollo.github.io/atom.xml" rel="self"/>
   
   <link href="https://neu-apollo.github.io/"/>
-  <updated>2025-07-12T11:31:38.021Z</updated>
+  <updated>2025-07-12T11:43:47.064Z</updated>
   <id>https://neu-apollo.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>git更改默认的编辑器</title>
+    <link href="https://neu-apollo.github.io/2025/07/12/git%E6%9B%B4%E6%94%B9%E9%BB%98%E8%AE%A4%E7%9A%84%E7%BC%96%E8%BE%91%E5%99%A8/"/>
+    <id>https://neu-apollo.github.io/2025/07/12/git%E6%9B%B4%E6%94%B9%E9%BB%98%E8%AE%A4%E7%9A%84%E7%BC%96%E8%BE%91%E5%99%A8/</id>
+    <published>2025-07-12T11:42:09.000Z</published>
+    <updated>2025-07-12T11:43:47.064Z</updated>
+    
+    <content type="html"><![CDATA[<p>git更改默认的编辑器</p><p>git默认的编辑器是<code>nano</code>，可以将默认编辑器改为 <code>vim</code>、<code>code</code>（VS Code）、<code>nvim</code> 等。</p><hr><h3 id="方法一：临时更改（只对当前命令有效）"><a href="#方法一：临时更改（只对当前命令有效）" class="headerlink" title="方法一：临时更改（只对当前命令有效）"></a>方法一：临时更改（只对当前命令有效）</h3><p>使用 <code>GIT_EDITOR</code> 环境变量临时指定编辑器，例如：</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">GIT_EDITOR=vim git rebase -i HEAD~3</span><br></pre></td></tr></table></figure><p>或者：</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">GIT_EDITOR=<span class="string">&quot;code --wait&quot;</span> git rebase -i HEAD~3</span><br></pre></td></tr></table></figure><p>注意：VS Code 需要加 <code>--wait</code>，否则它会立即返回，导致 rebase 失败。</p><hr><h3 id="方法二：永久更改"><a href="#方法二：永久更改" class="headerlink" title="方法二：永久更改"></a>方法二：永久更改</h3><p>你可以通过 Git 配置更改默认编辑器：</p><h4 id="设置为-vim："><a href="#设置为-vim：" class="headerlink" title="设置为 vim："></a>设置为 <code>vim</code>：</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global core.editor <span class="string">&quot;vim&quot;</span></span><br></pre></td></tr></table></figure><h4 id="设置为-nano（默认就是它）："><a href="#设置为-nano（默认就是它）：" class="headerlink" title="设置为 nano（默认就是它）："></a>设置为 <code>nano</code>（默认就是它）：</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global core.editor <span class="string">&quot;nano&quot;</span></span><br></pre></td></tr></table></figure><h4 id="设置为-VS-Code："><a href="#设置为-VS-Code：" class="headerlink" title="设置为 VS Code："></a>设置为 <code>VS Code</code>：</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global core.editor <span class="string">&quot;code --wait&quot;</span></span><br></pre></td></tr></table></figure><h4 id="设置为-nvim（Neovim）："><a href="#设置为-nvim（Neovim）：" class="headerlink" title="设置为 nvim（Neovim）："></a>设置为 <code>nvim</code>（Neovim）：</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global core.editor <span class="string">&quot;nvim&quot;</span></span><br></pre></td></tr></table></figure><hr><h3 id="查看当前配置的编辑器"><a href="#查看当前配置的编辑器" class="headerlink" title="查看当前配置的编辑器"></a>查看当前配置的编辑器</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global core.editor</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;git更改默认的编辑器&lt;/p&gt;
+&lt;p&gt;git默认的编辑器是&lt;code&gt;nano&lt;/code&gt;，可以将默认编辑器改为 &lt;code&gt;vim&lt;/code&gt;、&lt;code&gt;code&lt;/code&gt;（VS Code）、&lt;code&gt;nvim&lt;/code&gt; 等。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 i</summary>
+      
+    
+    
+    
+    <category term="git" scheme="https://neu-apollo.github.io/categories/git/"/>
+    
+    
+    <category term="git" scheme="https://neu-apollo.github.io/tags/git/"/>
+    
+  </entry>
   
   <entry>
     <title>git合并最近几次的提交</title>
