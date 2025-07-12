@@ -13,6 +13,6 @@ https://neu-apollo.github.io/tags/c/
 https://neu-apollo.github.io/tags/git/
 https://neu-apollo.github.io/tags/docker/
 https://neu-apollo.github.io/categories/c/
-https://neu-apollo.github.io/categories/paper-note/
 https://neu-apollo.github.io/categories/git/
+https://neu-apollo.github.io/categories/paper-note/
 https://neu-apollo.github.io/categories/docker/
