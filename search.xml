@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>docker-connection-problem</title>
+      <link href="/2025/07/30/docker-connection-problem/"/>
+      <url>/2025/07/30/docker-connection-problem/</url>
+      
+        <content type="html"><![CDATA[<p>报错1：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">PS &gt; docker pull ipads/oslab:25.03</span><br><span class="line">Error response from daemon: Get &quot;https://registry-1.docker.io/v2/&quot;: proxyconnect tcp: dial tcp 127.0.0.1:7890: connect: connection refused</span><br></pre></td></tr></table></figure><p>这个可能是由于clash引起的，clash配置的代理端口为7890，应该是和docker的产生冲突了，把clash的代理改为别的比如7899即可。</p><p>报错2：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">PS &gt; docker pull ipads/oslab:25.03</span><br><span class="line">Error response from daemon: Get &quot;https://registry-1.docker.io/v2/&quot;: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)</span><br></pre></td></tr></table></figure><p>配置一下镜像就行，这里参考</p><p><a href="https://qiaoqiao.blog.csdn.net/article/details/144476399?fromshare=blogdetail%5C&sharetype=blogdetail%5C&sharerId=144476399%5C&sharerefer=PC%5C&sharesource=weixin%5C_51173841%5C&sharefrom=from%5C_link">https://qiaoqiao.blog.csdn.net/article/details/144476399?fromshare=blogdetail\&amp;sharetype=blogdetail\&amp;sharerId=144476399\&amp;sharerefer=PC\&amp;sharesource=weixin\_51173841\&amp;sharefrom=from\_link</a></p><p>在docker-desktop中setting -&gt; docker engine里增加</p><figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="attr">&quot;registry-mirrors&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">  <span class="string">&quot;https://docker.1ms.run&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">&quot;https://docker.1panel.live/&quot;</span></span><br><span class="line"><span class="punctuation">]</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> docker </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> docker </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>vscode配置使用更加深色的主题</title>
       <link href="/2025/07/27/vscode-darker-theme/"/>
       <url>/2025/07/27/vscode-darker-theme/</url>
