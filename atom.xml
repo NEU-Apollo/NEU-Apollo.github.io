@@ -6,7 +6,7 @@
   <link href="https://neu-apollo.github.io/atom.xml" rel="self"/>
   
   <link href="https://neu-apollo.github.io/"/>
-  <updated>2025-07-30T14:31:05.982Z</updated>
+  <updated>2025-07-31T07:30:26.980Z</updated>
   <id>https://neu-apollo.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>git push failed: ssh: connect to host github.com port 22: Connection timed out fatal: Could not read from remote repository.</title>
+    <link href="https://neu-apollo.github.io/2025/07/31/git-push-failed-ssh-connect-to-host-github-com-port-22-Connection-timed-outfatal-Could-not-read-from-remote-repository/"/>
+    <id>https://neu-apollo.github.io/2025/07/31/git-push-failed-ssh-connect-to-host-github-com-port-22-Connection-timed-outfatal-Could-not-read-from-remote-repository/</id>
+    <published>2025-07-31T07:26:18.000Z</published>
+    <updated>2025-07-31T07:30:26.980Z</updated>
+    
+    <content type="html"><![CDATA[<p>报错：</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git push -u origin main</span><br><span class="line">ssh: connect to host github.com port 22: Connection timed out</span><br><span class="line">fatal: Could not <span class="built_in">read</span> from remote repository.</span><br></pre></td></tr></table></figure><p><code>ssh: connect to host github.com port 22: Connection timed out</code> 是因为 SSH 使用端口 22 连接 GitHub，而该端口被防火墙或网络策略阻止了。这种情况在校园网、公司内网或中国大陆环境中很常见。</p><h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><h4 id="✅-改用-HTTPS-协议（推荐）"><a href="#✅-改用-HTTPS-协议（推荐）" class="headerlink" title="✅ 改用 HTTPS 协议（推荐）"></a>✅ 改用 HTTPS 协议（推荐）</h4><p>现在是使用 SSH 协议连接（<code>git@github.com</code>），可以改成 HTTPS 协议，这样就不用走端口 22 了。</p><hr><h3 id="🔍-原因分析"><a href="#🔍-原因分析" class="headerlink" title="🔍 原因分析"></a>🔍 原因分析</h3><h4 id="1-SSH-默认使用的-22-端口被防火墙-网络限制了"><a href="#1-SSH-默认使用的-22-端口被防火墙-网络限制了" class="headerlink" title="1. SSH 默认使用的 22 端口被防火墙&#x2F;网络限制了"></a>1. <strong>SSH 默认使用的 22 端口被防火墙&#x2F;网络限制了</strong></h4><p>这是最常见的原因。SSH 协议连接 GitHub 默认走端口 22，而很多校园网、公司网络或者酒店 Wi-Fi 会出于安全考虑屏蔽这个端口。</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh: connect to host github.com port 22: Connection timed out</span><br></pre></td></tr></table></figure><p>就表明客户端根本连不上这个端口。</p><hr><h4 id="2-网络提供商-运营商干预（尤其是在中国大陆）"><a href="#2-网络提供商-运营商干预（尤其是在中国大陆）" class="headerlink" title="2. 网络提供商&#x2F;运营商干预（尤其是在中国大陆）"></a>2. <strong>网络提供商&#x2F;运营商干预（尤其是在中国大陆）</strong></h4><p>GitHub 的 SSH 服务可能受到干扰或降速，尤其是端口 22。这在中国大陆网络环境下也很常见。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;报错：&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ git push -u origin main&lt;/span&gt;&lt;br&gt;&lt;span clas</summary>
+      
+    
+    
+    
+    <category term="git" scheme="https://neu-apollo.github.io/categories/git/"/>
+    
+    
+    <category term="git" scheme="https://neu-apollo.github.io/tags/git/"/>
+    
+  </entry>
   
   <entry>
     <title>docker-connection-problem</title>
