@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>Linux目录已空但磁盘空间仍被占用的原因与解决方法</title>
+      <link href="/2025/08/07/Linux%E7%9B%AE%E5%BD%95%E5%B7%B2%E7%A9%BA%E4%BD%86%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4%E4%BB%8D%E8%A2%AB%E5%8D%A0%E7%94%A8%E7%9A%84%E5%8E%9F%E5%9B%A0%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"/>
+      <url>/2025/08/07/Linux%E7%9B%AE%E5%BD%95%E5%B7%B2%E7%A9%BA%E4%BD%86%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4%E4%BB%8D%E8%A2%AB%E5%8D%A0%E7%94%A8%E7%9A%84%E5%8E%9F%E5%9B%A0%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<p>最近在使用 <code>/mnt/pmem3</code> 做测试时，发现一个奇怪现象：</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">ls</span> /mnt/pmem3</span><br><span class="line">lost+found</span><br><span class="line"></span><br><span class="line">$ <span class="built_in">df</span> -h /mnt/pmem3</span><br><span class="line">Filesystem      Size  Used Avail Use% Mounted on</span><br><span class="line">/dev/pmem3      733G  482G  215G  70% /mnt/pmem3</span><br></pre></td></tr></table></figure><p>目录里几乎没文件，但磁盘使用率却高达 70%。</p><hr><h3 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析"></a>原因分析</h3><p>这是因为<strong>有文件虽然已经被删除，但仍然被进程占用</strong>。在 Linux 中，文件被删除后，只要仍有进程打开它，系统就不会真正释放空间。</p><p>这类问题在数据库、日志系统、持久内存（如 DAX）场景中很常见。</p><hr><h3 id="解决方法：使用-fuser-找出占用进程"><a href="#解决方法：使用-fuser-找出占用进程" class="headerlink" title="解决方法：使用 fuser 找出占用进程"></a>解决方法：使用 <code>fuser</code> 找出占用进程</h3><p>使用以下命令查看哪些进程还在使用 <code>/mnt/pmem3</code>：</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> fuser -vm /mnt/pmem3</span><br></pre></td></tr></table></figure><p>如果确认这些进程可以终止，直接杀掉它们即可：</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> fuser -km /mnt/pmem3</span><br></pre></td></tr></table></figure><p>也可以用<code>kill -9 &lt;pid&gt;</code>强制终止进程。</p><p>然后再次查看磁盘占用，空间就释放了：</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">df</span> -h /mnt/pmem3</span><br></pre></td></tr></table></figure><hr><h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>当遇到“目录已空但空间仍被占用”的问题时，记得：</p><ul><li>使用 <code>fuser</code> 检查是否有进程仍在使用该目录</li><li>杀掉相关进程后空间会自动释放</li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+            <tag> 磁盘空间 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>2025 CCF中国数据库暑期学校学习</title>
       <link href="/2025/08/05/2025-CCF%E4%B8%AD%E5%9B%BD%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9A%91%E6%9C%9F%E5%AD%A6%E6%A0%A1%E5%AD%A6%E4%B9%A0/"/>
       <url>/2025/08/05/2025-CCF%E4%B8%AD%E5%9B%BD%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9A%91%E6%9C%9F%E5%AD%A6%E6%A0%A1%E5%AD%A6%E4%B9%A0/</url>
@@ -201,19 +222,6 @@
     
     
     <entry>
-      <title>demo</title>
-      <link href="/2025/07/06/demo/"/>
-      <url>/2025/07/06/demo/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>docker容器为基础 编译运行minob</title>
       <link href="/2025/07/06/docker-based-compile-minob/"/>
       <url>/2025/07/06/docker-based-compile-minob/</url>
@@ -233,32 +241,6 @@
             <tag> docker </tag>
             
         </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>photo_test</title>
-      <link href="/2025/07/06/photo-test/"/>
-      <url>/2025/07/06/photo-test/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/2025/07/06/test/"/>
-      <url>/2025/07/06/test/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
       
     </entry>
     

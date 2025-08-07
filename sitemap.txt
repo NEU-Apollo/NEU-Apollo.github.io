@@ -1,3 +1,5 @@
+https://neu-apollo.github.io/2025/08/07/Linux%E7%9B%AE%E5%BD%95%E5%B7%B2%E7%A9%BA%E4%BD%86%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4%E4%BB%8D%E8%A2%AB%E5%8D%A0%E7%94%A8%E7%9A%84%E5%8E%9F%E5%9B%A0%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/
+https://neu-apollo.github.io/2025/07/06/docker%E5%AE%B9%E5%99%A8%E4%B8%BA%E5%9F%BA%E7%A1%80%20%E7%BC%96%E8%AF%91%E8%BF%90%E8%A1%8Cminob/
 https://neu-apollo.github.io/2025/08/05/2025-CCF%E4%B8%AD%E5%9B%BD%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9A%91%E6%9C%9F%E5%AD%A6%E6%A0%A1%E5%AD%A6%E4%B9%A0/
 https://neu-apollo.github.io/2025/07/31/git-push-failed-ssh-connect-to-host-github-com-port-22-Connection-timed-outfatal-Could-not-read-from-remote-repository/
 https://neu-apollo.github.io/2025/07/30/docker-connection-problem/
@@ -9,12 +11,8 @@ https://neu-apollo.github.io/2025/07/06/-march=native%20-mavx512f%20%E4%B8%A4%E4
 https://neu-apollo.github.io/2025/07/06/perf%E5%91%BD%E4%BB%A4%E5%BF%AB%E9%80%9F%E4%BD%BF%E7%94%A8/
 https://neu-apollo.github.io/2025/07/06/docker-based-compile-minob/
 https://neu-apollo.github.io/2025/07/06/CCEH-hash-split-and-directory-doubling-demo/
-https://neu-apollo.github.io/2025/07/06/demo/
-https://neu-apollo.github.io/2025/07/06/photo-test/
-https://neu-apollo.github.io/2025/07/06/docker%E5%AE%B9%E5%99%A8%E4%B8%BA%E5%9F%BA%E7%A1%80%20%E7%BC%96%E8%AF%91%E8%BF%90%E8%A1%8Cminob/
 https://neu-apollo.github.io/2025/07/06/Build%20and%20Deploy%20Hexo-based%20github%20pages/
 https://neu-apollo.github.io/2025/07/06/hello-world/
-https://neu-apollo.github.io/2025/07/06/test/
 https://neu-apollo.github.io/tags/index.html
 https://neu-apollo.github.io/categories/index.html
 https://neu-apollo.github.io/archives/index.html
@@ -22,6 +20,8 @@ https://neu-apollo.github.io/about/me.html
 https://neu-apollo.github.io/
 https://neu-apollo.github.io/tags/%E7%BC%96%E8%AF%91/
 https://neu-apollo.github.io/tags/c/
+https://neu-apollo.github.io/tags/Linux/
+https://neu-apollo.github.io/tags/%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4/
 https://neu-apollo.github.io/tags/docker/
 https://neu-apollo.github.io/tags/git/
 https://neu-apollo.github.io/tags/vscode/
