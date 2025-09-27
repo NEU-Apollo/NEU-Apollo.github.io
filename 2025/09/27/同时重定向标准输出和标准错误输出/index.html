@@ -1,0 +1,95 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content=""><meta name="theme-color" content="#2d4356"><meta name="baidu-site-verification"><title>同时重定向标准输出和标准错误输出 | YuanBlog</title><link rel="stylesheet" type="text/css" href="/css/style.css"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.png"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="YuanBlog" type="application/atom+xml">
+</head><link rel="stylesheet" type="text/css" href="/plugins/highlight/atom-one-dark.min.css"><script type="text/javascript" src="/plugins/highlight/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();
+</script><script type="text/javascript" src="/js/ready.js" async></script><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"><body class="night"><div class="mobile-head" id="mobile-head"><div class="navbar-icon"><span></span><span></span><span></span></div><div class="navbar-title"><a href="/">LITREILY</a></div><div class="navbar-search"><!--= show a circle here--></div></div><div class="h-wrapper" id="menu"><nav class="h-head box"><div class="m-hdimg"><a class="hdimg img" href="/"><img class="nofancybox" src="/img/head.jpg" width="128" height="128"></a><h1 class="ttl"><a href="/">YuanBlog</a></h1></div><p class="m-desc">小萌新</p><div class="m-nav"><ul><li><span class="dot">●</span><a href="/archives/">归档</a></li><li><span class="dot">●</span><a href="/categories/">分类</a></li><li><span class="dot">●</span><a href="/tags/">标签</a></li><li><span class="dot">●</span><a href="/about/">关于</a></li><li><span class="dot">●</span><a href="/atom.xml">RSS</a></li><li class="m-sch"><form class="form" id="j-formsch" method="get"><input class="txt" type="text" id="local-search-input" name="q" value="搜索" onfocus="if(this.value=='搜索'){this.value='';}" onblur="if(this.value==''){this.value='搜索';}"><input type="text" style="display:none;"></form></li></ul><div id="local-search-result"></div></div></nav></div><div id="back2Top"><a class="fa fa-arrow-up" title="Back to top" href="#"></a></div><div class="box" id="container"><div class="l-wrapper"><div class="l-content box"><div class="l-post l-post-art"><article class="p-art"><div class="p-header box"><h1 class="p-title">同时重定向标准输出和标准错误输出</h1><div class="p-info"><span class="p-date"><i class="fa fa-calendar"></i><a href="/2025/09/27/%E5%90%8C%E6%97%B6%E9%87%8D%E5%AE%9A%E5%90%91%E6%A0%87%E5%87%86%E8%BE%93%E5%87%BA%E5%92%8C%E6%A0%87%E5%87%86%E9%94%99%E8%AF%AF%E8%BE%93%E5%87%BA/">2025-09-27</a></span><span class="p-view" id="busuanzi_container_page_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv"></span></span></div></div><div class="p-content"><p>在 Shell（如 Bash）中，<code>&amp;&gt;</code> 和 <code>|&amp;</code> 是用于重定向标准输出（stdout）和标准错误（stderr）的语法糖。它们的作用如下：</p>
+<hr>
+<h3 id="1-：同时重定向-stdout-和-stderr-到文件"><a href="#1-：同时重定向-stdout-和-stderr-到文件" class="headerlink" title="1. &amp;&gt;：同时重定向 stdout 和 stderr 到文件"></a>1. <code>&amp;&gt;</code>：同时重定向 stdout 和 stderr 到文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">command</span> &amp;&gt; file</span><br></pre></td></tr></table></figure>
+
+<p>等价于：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">command</span> &gt; file 2&gt;&amp;1</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>将命令的 <strong>标准输出</strong> 和 <strong>标准错误</strong> 都写入 <code>file</code>。</li>
+<li>如果文件已存在，会被<strong>覆盖</strong>；若要追加，应使用 <code>&amp;&gt;&gt;</code>（Bash 4.0+）。</li>
+</ul>
+<p><strong>示例：</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ls</span> /existing /nonexistent &amp;&gt; output.log</span><br></pre></td></tr></table></figure>
+
+<p>无论 <code>ls</code> 成功还是报错，所有输出都会写入 <code>output.log</code>。</p>
+<hr>
+<h3 id="2-：将-stdout-和-stderr-一起通过管道传递给下一个命令"><a href="#2-：将-stdout-和-stderr-一起通过管道传递给下一个命令" class="headerlink" title="2. |&amp;：将 stdout 和 stderr 一起通过管道传递给下一个命令"></a>2. <code>|&amp;</code>：将 stdout 和 stderr 一起通过管道传递给下一个命令</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">command1 |&amp; command2</span><br></pre></td></tr></table></figure>
+
+<p>等价于：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">command1 2&gt;&amp;1 | command2</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>把 <code>command1</code> 的 <strong>stdout 和 stderr 合并</strong>，作为 <code>command2</code> 的输入。</li>
+</ul>
+<p><strong>示例：</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">grep <span class="string">&quot;error&quot;</span> /var/log/syslog /nonexistent_file |&amp; <span class="built_in">tee</span> error_output.txt</span><br></pre></td></tr></table></figure>
+
+<p>即使 <code>grep</code> 报错（如文件不存在），错误信息也会被 <code>tee</code> 捕获并写入文件。</p>
+<hr>
+<h3 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a>注意事项：</h3><ul>
+<li><code>&amp;&gt;</code> 和 <code>|&amp;</code> 是 <strong>Bash 特有</strong> 的扩展语法，在 POSIX shell（如 <code>sh</code>）中<strong>不可用</strong>。</li>
+<li>在脚本中追求可移植性时，建议使用标准写法：<code>&gt; file 2&gt;&amp;1</code> 或 <code>2&gt;&amp;1 | ...</code>。</li>
+<li>在 Zsh 中，<code>&amp;&gt;</code> 同样有效，但 <code>|&amp;</code> 的行为可能略有不同（不过通常兼容）。</li>
+</ul>
+<hr>
+<h3 id="总结对比："><a href="#总结对比：" class="headerlink" title="总结对比："></a>总结对比：</h3><table>
+<thead>
+<tr>
+<th>语法</th>
+<th>含义</th>
+<th>等价写法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&amp;&gt; file</code></td>
+<td>stdout + stderr → file</td>
+<td><code>&gt; file 2&gt;&amp;1</code></td>
+</tr>
+<tr>
+<td><code>|&amp; cmd</code></td>
+<td>stdout + stderr → 管道 → cmd</td>
+<td>&#96;2&gt;&amp;1</td>
+</tr>
+</tbody></table>
+</div><div class="p-copyright"><blockquote><div class="p-copyright-author"><span class="p-copyright-key">本文作者：</span><span class="p-copytight-value"><a href="mailto:litreily@163.com">Yuan</a></span></div><div class="p-copyright-link"><span class="p-copyright-key">本文链接：</span><span class="p-copytight-value"><a href="/2025/09/27/%E5%90%8C%E6%97%B6%E9%87%8D%E5%AE%9A%E5%90%91%E6%A0%87%E5%87%86%E8%BE%93%E5%87%BA%E5%92%8C%E6%A0%87%E5%87%86%E9%94%99%E8%AF%AF%E8%BE%93%E5%87%BA/">https://NEU-Apollo.github.io/2025/09/27/同时重定向标准输出和标准错误输出/</a></span></div><div class="p-copyright-note"><span class="p-copyright-key">版权声明：</span><span class="p-copytight-value">本博客所有文章除特殊声明外，均采用<a rel="nofollow" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/"> CC BY-NC 4.0 </a>许可协议。转载请注明出处 <a href="https://NEU-Apollo.github.io">Yuan的博客</a>！</span></div></blockquote></div></article><div class="p-info box"><span class="p-tags"><i class="fa fa-tag"></i><a href="/tags/Linux-shell/">Linux shell</a></span></div><aside id="toc"><div class="toc-title">目录</div><nav><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%EF%BC%9A%E5%90%8C%E6%97%B6%E9%87%8D%E5%AE%9A%E5%90%91-stdout-%E5%92%8C-stderr-%E5%88%B0%E6%96%87%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">1. &amp;&gt;：同时重定向 stdout 和 stderr 到文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%EF%BC%9A%E5%B0%86-stdout-%E5%92%8C-stderr-%E4%B8%80%E8%B5%B7%E9%80%9A%E8%BF%87%E7%AE%A1%E9%81%93%E4%BC%A0%E9%80%92%E7%BB%99%E4%B8%8B%E4%B8%80%E4%B8%AA%E5%91%BD%E4%BB%A4"><span class="toc-number">2.</span> <span class="toc-text">2. |&amp;：将 stdout 和 stderr 一起通过管道传递给下一个命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%EF%BC%9A"><span class="toc-number">3.</span> <span class="toc-text">注意事项：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%E5%AF%B9%E6%AF%94%EF%BC%9A"><span class="toc-number">4.</span> <span class="toc-text">总结对比：</span></a></li></ol></nav></aside></div><section class="p-ext"><div class="l-pager l-pager-dtl box"><a class="next" href="/2025/09/27/Linux-%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%BB%88%E7%AB%AF%E8%BF%9B%E7%A8%8B%E7%9A%84%E4%B8%89%E7%A7%8D%E7%8A%B6%E6%80%81%E4%B9%8B%E9%97%B4%E7%9A%84%E8%BD%AC%E6%8D%A2%E7%A4%BA%E4%BE%8B/">Linux 系统中终端进程的三种状态之间的转换示例 &gt;</a></div><div id="valine-comment"><style type="text/css">.night .v[data-class=v] a { color: #0F9FB4 !important; }
+.night .v[data-class=v] a:hover { color: #216C73 !important; }
+.night .v[data-class=v] li { list-style: inherit; }
+.night .v[data-class=v] .vwrap { border: 1px solid #223441; border-radius: 0; }
+.night .v[data-class=v] .vwrap:hover { box-shadow: 0 0 6px 1px #223441; }
+.night .v[data-class=v] .vbtn { border-radius: 0; background: none; }
+.night .v[data-class=v] .vlist .vcard .vh { border-bottom-color: #293D4E; }
+.night .v[data-class=v] .vwrap .vheader .vinput { border-bottom-color: #223441; }
+.night .v[data-class=v] .vwrap .vheader .vinput:focus { border-bottom-color: #339EB4; }
+.night .v[data-class=v] code, .night .v[data-class=v] pre,.night .v[data-class=v] .vlist .vcard .vhead .vsys { background: #203240 !important; }
+.night .v[data-class=v] code, .night .v[data-class=v] pre { color: #F0F0F0; font-size: 95%; }
+.v[data-class=v] .vcards .vcard .vh {border-bottom-color: #223441; }
+.night .v[data-class=v] .vcards .vcard .vcontent.expand:before {background: linear-gradient(180deg,rgba(38,57,73,.4),rgba(38,57,73,.9));}
+.night .v[data-class=v] .vcards .vcard .vcontent.expand:after {background: rgba(38,57,73,.9)}
+</style><div id="vcomment"></div><script src="//cdn.bootcdn.net/ajax/libs/valine/1.4.14/Valine.min.js"></script><script>var notify = 'false' == true ? true : false;
+var verify = 'false' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'',
+  appKey:'',
+  lang: 'zh-cn',
+  placeholder:'ヾﾉ≧∀≦)o Come on, say something...',
+  avatar:'identicon',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></section><footer><p>Copyright © 2016 - 2025 <a href="/." rel="nofollow">YuanBlog</a> | <strong><a rel="nofollow" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></strong><br><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span></span> <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span></span> | Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a>Theme with<a rel="nofollow" target="_blank" href="https://github.com/litreily/snark-hexo"> snark.</a></p></footer></div></div></div><script type="text/javascript" src="/js/search.js"></script><script type="text/javascript" src="/js/top.js"></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+    search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1" async></script></body></html>

@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://neu-apollo.github.io/2025/09/27/%E5%90%8C%E6%97%B6%E9%87%8D%E5%AE%9A%E5%90%91%E6%A0%87%E5%87%86%E8%BE%93%E5%87%BA%E5%92%8C%E6%A0%87%E5%87%86%E9%94%99%E8%AF%AF%E8%BE%93%E5%87%BA/</loc>
+    
+    <lastmod>2025-09-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://neu-apollo.github.io/2025/09/27/Linux-%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%BB%88%E7%AB%AF%E8%BF%9B%E7%A8%8B%E7%9A%84%E4%B8%89%E7%A7%8D%E7%8A%B6%E6%80%81%E4%B9%8B%E9%97%B4%E7%9A%84%E8%BD%AC%E6%8D%A2%E7%A4%BA%E4%BE%8B/</loc>
+    
+    <lastmod>2025-09-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://neu-apollo.github.io/2025/08/07/Linux%E7%9B%AE%E5%BD%95%E5%B7%B2%E7%A9%BA%E4%BD%86%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4%E4%BB%8D%E8%A2%AB%E5%8D%A0%E7%94%A8%E7%9A%84%E5%8E%9F%E5%9B%A0%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</loc>
     
     <lastmod>2025-08-07</lastmod>
@@ -175,7 +193,7 @@
 
   <url>
     <loc>https://neu-apollo.github.io/</loc>
-    <lastmod>2025-08-07</lastmod>
+    <lastmod>2025-09-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -183,49 +201,56 @@
   
   <url>
     <loc>https://neu-apollo.github.io/tags/%E7%BC%96%E8%AF%91/</loc>
-    <lastmod>2025-08-07</lastmod>
+    <lastmod>2025-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://neu-apollo.github.io/tags/c/</loc>
-    <lastmod>2025-08-07</lastmod>
+    <lastmod>2025-09-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://neu-apollo.github.io/tags/Linux-shell/</loc>
+    <lastmod>2025-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://neu-apollo.github.io/tags/Linux/</loc>
-    <lastmod>2025-08-07</lastmod>
+    <lastmod>2025-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://neu-apollo.github.io/tags/%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4/</loc>
-    <lastmod>2025-08-07</lastmod>
+    <lastmod>2025-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://neu-apollo.github.io/tags/docker/</loc>
-    <lastmod>2025-08-07</lastmod>
+    <lastmod>2025-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://neu-apollo.github.io/tags/git/</loc>
-    <lastmod>2025-08-07</lastmod>
+    <lastmod>2025-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://neu-apollo.github.io/tags/vscode/</loc>
-    <lastmod>2025-08-07</lastmod>
+    <lastmod>2025-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -234,35 +259,35 @@
   
   <url>
     <loc>https://neu-apollo.github.io/categories/c/</loc>
-    <lastmod>2025-08-07</lastmod>
+    <lastmod>2025-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://neu-apollo.github.io/categories/paper-note/</loc>
-    <lastmod>2025-08-07</lastmod>
+    <lastmod>2025-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://neu-apollo.github.io/categories/docker/</loc>
-    <lastmod>2025-08-07</lastmod>
+    <lastmod>2025-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://neu-apollo.github.io/categories/git/</loc>
-    <lastmod>2025-08-07</lastmod>
+    <lastmod>2025-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://neu-apollo.github.io/categories/vscode/</loc>
-    <lastmod>2025-08-07</lastmod>
+    <lastmod>2025-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>

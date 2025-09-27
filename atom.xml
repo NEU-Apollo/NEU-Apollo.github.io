@@ -6,7 +6,7 @@
   <link href="https://neu-apollo.github.io/atom.xml" rel="self"/>
   
   <link href="https://neu-apollo.github.io/"/>
-  <updated>2025-08-07T02:53:38.512Z</updated>
+  <updated>2025-09-27T08:58:01.308Z</updated>
   <id>https://neu-apollo.github.io/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>同时重定向标准输出和标准错误输出</title>
+    <link href="https://neu-apollo.github.io/2025/09/27/%E5%90%8C%E6%97%B6%E9%87%8D%E5%AE%9A%E5%90%91%E6%A0%87%E5%87%86%E8%BE%93%E5%87%BA%E5%92%8C%E6%A0%87%E5%87%86%E9%94%99%E8%AF%AF%E8%BE%93%E5%87%BA/"/>
+    <id>https://neu-apollo.github.io/2025/09/27/%E5%90%8C%E6%97%B6%E9%87%8D%E5%AE%9A%E5%90%91%E6%A0%87%E5%87%86%E8%BE%93%E5%87%BA%E5%92%8C%E6%A0%87%E5%87%86%E9%94%99%E8%AF%AF%E8%BE%93%E5%87%BA/</id>
+    <published>2025-09-27T08:53:09.000Z</published>
+    <updated>2025-09-27T08:58:01.308Z</updated>
+    
+    <content type="html"><![CDATA[<p>在 Shell（如 Bash）中，<code>&amp;&gt;</code> 和 <code>|&amp;</code> 是用于重定向标准输出（stdout）和标准错误（stderr）的语法糖。它们的作用如下：</p><hr><h3 id="1-：同时重定向-stdout-和-stderr-到文件"><a href="#1-：同时重定向-stdout-和-stderr-到文件" class="headerlink" title="1. &amp;&gt;：同时重定向 stdout 和 stderr 到文件"></a>1. <code>&amp;&gt;</code>：同时重定向 stdout 和 stderr 到文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">command</span> &amp;&gt; file</span><br></pre></td></tr></table></figure><p>等价于：</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">command</span> &gt; file 2&gt;&amp;1</span><br></pre></td></tr></table></figure><ul><li>将命令的 <strong>标准输出</strong> 和 <strong>标准错误</strong> 都写入 <code>file</code>。</li><li>如果文件已存在，会被<strong>覆盖</strong>；若要追加，应使用 <code>&amp;&gt;&gt;</code>（Bash 4.0+）。</li></ul><p><strong>示例：</strong></p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ls</span> /existing /nonexistent &amp;&gt; output.log</span><br></pre></td></tr></table></figure><p>无论 <code>ls</code> 成功还是报错，所有输出都会写入 <code>output.log</code>。</p><hr><h3 id="2-：将-stdout-和-stderr-一起通过管道传递给下一个命令"><a href="#2-：将-stdout-和-stderr-一起通过管道传递给下一个命令" class="headerlink" title="2. |&amp;：将 stdout 和 stderr 一起通过管道传递给下一个命令"></a>2. <code>|&amp;</code>：将 stdout 和 stderr 一起通过管道传递给下一个命令</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">command1 |&amp; command2</span><br></pre></td></tr></table></figure><p>等价于：</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">command1 2&gt;&amp;1 | command2</span><br></pre></td></tr></table></figure><ul><li>把 <code>command1</code> 的 <strong>stdout 和 stderr 合并</strong>，作为 <code>command2</code> 的输入。</li></ul><p><strong>示例：</strong></p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">grep <span class="string">&quot;error&quot;</span> /var/log/syslog /nonexistent_file |&amp; <span class="built_in">tee</span> error_output.txt</span><br></pre></td></tr></table></figure><p>即使 <code>grep</code> 报错（如文件不存在），错误信息也会被 <code>tee</code> 捕获并写入文件。</p><hr><h3 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a>注意事项：</h3><ul><li><code>&amp;&gt;</code> 和 <code>|&amp;</code> 是 <strong>Bash 特有</strong> 的扩展语法，在 POSIX shell（如 <code>sh</code>）中<strong>不可用</strong>。</li><li>在脚本中追求可移植性时，建议使用标准写法：<code>&gt; file 2&gt;&amp;1</code> 或 <code>2&gt;&amp;1 | ...</code>。</li><li>在 Zsh 中，<code>&amp;&gt;</code> 同样有效，但 <code>|&amp;</code> 的行为可能略有不同（不过通常兼容）。</li></ul><hr><h3 id="总结对比："><a href="#总结对比：" class="headerlink" title="总结对比："></a>总结对比：</h3><table><thead><tr><th>语法</th><th>含义</th><th>等价写法</th></tr></thead><tbody><tr><td><code>&amp;&gt; file</code></td><td>stdout + stderr → file</td><td><code>&gt; file 2&gt;&amp;1</code></td></tr><tr><td><code>|&amp; cmd</code></td><td>stdout + stderr → 管道 → cmd</td><td>&#96;2&gt;&amp;1</td></tr></tbody></table>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;在 Shell（如 Bash）中，&lt;code&gt;&amp;amp;&amp;gt;&lt;/code&gt; 和 &lt;code&gt;|&amp;amp;&lt;/code&gt; 是用于重定向标准输出（stdout）和标准错误（stderr）的语法糖。它们的作用如下：&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;1-：同时重定向-stdo</summary>
+      
+    
+    
+    
+    
+    <category term="Linux shell" scheme="https://neu-apollo.github.io/tags/Linux-shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux 系统中终端进程的三种状态之间的转换示例</title>
+    <link href="https://neu-apollo.github.io/2025/09/27/Linux-%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%BB%88%E7%AB%AF%E8%BF%9B%E7%A8%8B%E7%9A%84%E4%B8%89%E7%A7%8D%E7%8A%B6%E6%80%81%E4%B9%8B%E9%97%B4%E7%9A%84%E8%BD%AC%E6%8D%A2%E7%A4%BA%E4%BE%8B/"/>
+    <id>https://neu-apollo.github.io/2025/09/27/Linux-%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%BB%88%E7%AB%AF%E8%BF%9B%E7%A8%8B%E7%9A%84%E4%B8%89%E7%A7%8D%E7%8A%B6%E6%80%81%E4%B9%8B%E9%97%B4%E7%9A%84%E8%BD%AC%E6%8D%A2%E7%A4%BA%E4%BE%8B/</id>
+    <published>2025-09-27T08:05:53.000Z</published>
+    <updated>2025-09-27T08:53:42.727Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/2025/09/27/Linux-%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%BB%88%E7%AB%AF%E8%BF%9B%E7%A8%8B%E7%9A%84%E4%B8%89%E7%A7%8D%E7%8A%B6%E6%80%81%E4%B9%8B%E9%97%B4%E7%9A%84%E8%BD%AC%E6%8D%A2%E7%A4%BA%E4%BE%8B/image-1.png"></p><ul><li>启动一个前台进程  </li><li>用 <code>Ctrl+Z</code> 暂停它（进入 stopped 状态）  </li><li>用 <code>bg</code> 把它放到后台运行  </li><li>用 <code>fg</code> 把它调回前台</li></ul><hr><h4 id="第-1-步：创建一个长时间运行的-Python-脚本"><a href="#第-1-步：创建一个长时间运行的-Python-脚本" class="headerlink" title="第 1 步：创建一个长时间运行的 Python 脚本"></a>第 1 步：创建一个长时间运行的 Python 脚本</h4><p>在终端中执行以下命令创建一个脚本：</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> &gt; count.py &lt;&lt; <span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">import <span class="keyword">time</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Counting... (Press Ctrl+C to quit)&quot;</span>)</span><br><span class="line">i = 0</span><br><span class="line">try:</span><br><span class="line">    <span class="keyword">while</span> True:</span><br><span class="line">        <span class="built_in">print</span>(f<span class="string">&quot;Count: &#123;i&#125;&quot;</span>)</span><br><span class="line">        i += 1</span><br><span class="line">        time.sleep(1)</span><br><span class="line">except KeyboardInterrupt:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;\nExiting.&quot;</span>)</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure><p>这个脚本会每秒打印一个数字，一直运行下去，直到中断它。</p><hr><h4 id="第-2-步：运行脚本（前台运行）"><a href="#第-2-步：运行脚本（前台运行）" class="headerlink" title="第 2 步：运行脚本（前台运行）"></a>第 2 步：运行脚本（前台运行）</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 count.py</span><br></pre></td></tr></table></figure><p>会看到输出：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Count: 0</span><br><span class="line">Count: 1</span><br><span class="line">Count: 2</span><br><span class="line">...</span><br></pre></td></tr></table></figure><p>此时进程处于 <strong>running in foreground</strong>（前台运行）。</p><hr><h4 id="第-3-步：暂停进程（Stopped）"><a href="#第-3-步：暂停进程（Stopped）" class="headerlink" title="第 3 步：暂停进程（Stopped）"></a>第 3 步：暂停进程（Stopped）</h4><p>按下 <strong><code>Ctrl+Z</code></strong>（不是 Ctrl+C！）：</p><p>会看到类似：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">^Z</span><br><span class="line">[1]+  Stopped                 python3 count.py</span><br></pre></td></tr></table></figure><p>现在进程处于 <strong>stopped</strong> 状态，不再执行，但仍在内存中。</p><hr><h4 id="第-4-步：放到后台运行（Background）"><a href="#第-4-步：放到后台运行（Background）" class="headerlink" title="第 4 步：放到后台运行（Background）"></a>第 4 步：放到后台运行（Background）</h4><p>输入命令：</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">bg</span></span><br></pre></td></tr></table></figure><p>输出类似：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[1]+ python3 count.py &amp;</span><br></pre></td></tr></table></figure><p>现在脚本在<strong>后台继续运行</strong>，会看到数字继续打印（可能混在命令提示符中），说明它处于 <strong>running in background</strong>。</p><blockquote><p>💡 注意：因为输出仍在终端，可能会看到数字和命令行提示符混在一起。这是正常的。</p></blockquote><hr><h4 id="第-5-步：调回前台（Foreground）"><a href="#第-5-步：调回前台（Foreground）" class="headerlink" title="第 5 步：调回前台（Foreground）"></a>第 5 步：调回前台（Foreground）</h4><p>输入：</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">fg</span></span><br></pre></td></tr></table></figure><p>进程回到前台，继续正常输出，此时可以按 <code>Ctrl+Z</code> 或 <code>Ctrl+C</code> 控制它。</p><hr><h4 id="第-6-步（可选）：查看作业状态"><a href="#第-6-步（可选）：查看作业状态" class="headerlink" title="第 6 步（可选）：查看作业状态"></a>第 6 步（可选）：查看作业状态</h4><p>在任意时刻，可以用：</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">jobs</span></span><br></pre></td></tr></table></figure><p>查看当前 shell 中的作业状态，例如：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[1]+  Running                 python3 count.py &amp;</span><br></pre></td></tr></table></figure><p>或</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[1]+  Stopped                 python3 count.py</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/2025/09/27/Linux-%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%BB%88%E7%AB%AF%E8%BF%9B%E7%A8%8B%E7%9A%84%E4%B8%89%E7%A7%8D%E7%8A%B6%E6%80%81%</summary>
+      
+    
+    
+    
+    
+    <category term="Linux shell" scheme="https://neu-apollo.github.io/tags/Linux-shell/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux目录已空但磁盘空间仍被占用的原因与解决方法</title>
